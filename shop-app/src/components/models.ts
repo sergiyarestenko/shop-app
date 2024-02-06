@@ -1,8 +1,14 @@
-export interface Todo {
-  id: number;
-  content: string;
+export interface ITodo {
+  id: string;
+  content?: string;
+  quantity?: number | string;
+  measure?: string;
+  completed?: boolean;
 }
 
-export interface Meta {
-  totalCount: number;
+export interface ITodoItem {
+  id: string;
+  todos: ITodo[];
+  assignedTo?: string;
+  completed?: boolean;
 }

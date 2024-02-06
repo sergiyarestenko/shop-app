@@ -1,42 +1,53 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+    <task-list :todo-list="todoList"></task-list>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { ITodo, ITodoItem } from 'components/models';
+import TaskList from 'components/TaskList.vue';
 import { ref } from 'vue';
 
-const todos = ref<Todo[]>([
+const taskOne = ref<ITodo[]>([
   {
-    id: 1,
-    content: 'ct1'
+    id: 'id',
+    content: 'content',
+    quantity: 2,
+    measure: 'kg',
+    completed: false,
   },
   {
-    id: 2,
-    content: 'ct2'
+    id: 'id2',
+    content: 'content2',
   },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
 ]);
-const meta = ref<Meta>({
-  totalCount: 1200
-});
+const taskTwo = ref<ITodo[]>([
+  {
+    id: '2id',
+    content: 'content',
+    quantity: 2,
+    measure: 'kg',
+    completed: false,
+  },
+  {
+    id: '2id2',
+    content: 'content2',
+  },
+]);
+
+const todoList = ref<ITodoItem[]>([
+  {
+    id: 'kjhlk',
+    todos: taskOne.value,
+    assignedTo: 'assignedfgsdTo',
+    completed: false,
+  },
+  {
+    id: 'kjsdfhlk',
+    todos: taskTwo.value,
+    assignedTo: 'assignedTo',
+    completed: false,
+  },
+]);
 </script>
